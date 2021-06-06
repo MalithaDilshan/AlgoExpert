@@ -28,3 +28,5 @@ else:
 finally:
     if con:
         con.close()
+
+# References : https://cx-oracle.readthedocs.io/en/latest/api_manual/module.html
