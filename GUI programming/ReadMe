@@ -1,0 +1,7 @@
+Steps to create the .exe file from the python script for windows
+
+1. Move to the folder where the pip script contains
+2. Execute 'pip install pyinstaller'
+3. Move your script to this same folder
+4. Execute pyinstaller --onefile <file_name>.py
+5. This will create a dist folder

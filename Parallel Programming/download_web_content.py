@@ -20,7 +20,15 @@ f.close()
 # Only working for simple html files, need to find a proper way to do this
 with open(file_path, 'r', encoding="utf-8") as html_file:
     html_content = html_file.read()
-    _json = xmltojson.parse(str(html_content))
-    print(_json)
+    out_file = open('web_content.json', 'w')
+    json.dump(html_content, out_file)
+    # _json = xmltojson.parse(str(html_content))
+    out_file.close()
 
+file_path = 'C:\\Users\\ACER\\Desktop\\Python_projects\\pythonProject\\SpentX\\AlgoExpert\\Parallel ' \
+            'Programming\\web_content.json '
+
+with open(file_path, 'r', encoding="utf-8") as json_file:
+    json_content = json_file.read()
+    print(json_content)
 # Resources: https://programminghistorian.org/en/lessons/working-with-web-pages
