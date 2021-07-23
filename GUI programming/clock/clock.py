@@ -8,7 +8,7 @@ import sys
 root = Tk()
 root.title("Clock")
 root.resizable(False, False)
-root.geometry("440x140")
+root.geometry("450x140")
 
 
 # sys.setrecursionlimit(10000)
@@ -20,7 +20,7 @@ def time():
     label.after(1000, time)
 
 
-label = Label(root, font=("ds-digital", 100), background="black", foreground="green", relief=RAISED, width=400)
+label = Label(root, font=("ds-digital", 100), background="black", foreground="yellow", relief=RAISED, width=400)
 label.pack(anchor='c')
 
 time()
