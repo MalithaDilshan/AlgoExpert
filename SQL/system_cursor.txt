@@ -1,0 +1,22 @@
+SET SERVEROUTPUT ON;
+DECLARE 
+  cat_cursor SYS_REFCURSOR;
+  cat_data gen_category%rowtype;
+BEGIN
+    cat_cursor := GENERIC_SEARCH.GET_CATEGORIES(21279,1);
+    loop
+      fetch cat_cursor into cat_data;
+      exit when cat_cursor%notfound;
+      DBMS_OUTPUT.PUT_LINE( 'CONTRACT_ID: ' || cat_data.CONTRACT_ID );
+      DBMS_OUTPUT.PUT_LINE( 'CATEGORY_NO: ' || cat_data.CATEGORY_NO );
+      DBMS_OUTPUT.PUT_LINE( 'CODE: ' || cat_data.CODE );
+      DBMS_OUTPUT.PUT_LINE( 'DESCRIPTION: ' || cat_data.DESCRIPTION );
+      DBMS_OUTPUT.PUT_LINE( 'VOUCHER_REQUIRED: ' || cat_data.SUPP_VOUCHER_REQ_FLAG );
+    end loop;
+END;
+/
+commit;
+
+
+select * from gen_category where contract_id = 22630;
+select * from gen_contract where contract_id = 22938;

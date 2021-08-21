@@ -1,0 +1,28 @@
+create type num_array as table of number;
+/
+
+create or replace function myfun ( arr_in num_array ) return varchar2 is
+    txt varchar2(1000);
+begin
+    for i in 1..arr_in.count loop
+    txt := txt || to_char( arr_in(i) ) || ',';
+    end loop;
+    return txt;
+end;
+/
+
+SET SERVEROUTPUT ON;
+
+DECLARE
+    myarray num_array;
+    mytext  varchar2(1000);
+
+BEGIN
+   myarray := num_array();
+   myarray.extend(3);
+   myarray(1) := 1;
+   myarray(2) := 5;
+   myarray(3) := 9;
+   dbms_output.put_line( myfun( myarray ));
+END;
+/
